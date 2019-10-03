@@ -8,7 +8,9 @@
     <div class="proposal-card-container">
       <div class="proposal-picture-slider">
         <!-- proposal.picture (slider, durch klicken nächstes Foto)-->
-        <%= image_tag "testbild1.jpg", class: 'proposal-picture' %>
+        <% if proposal.photo.present? %>
+          <%= image_tag proposal.photo, class: 'proposal-picture' %>
+        <% end %>
         <i class="far fa-circle"></i>
         <i class="far fa-check-circle" hidden='true'></i>
       </div>

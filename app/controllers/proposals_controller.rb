@@ -50,6 +50,6 @@ class ProposalsController < ApplicationController
   private
 
   def proposal_params
-    params.require(:proposal).permit(:project_id, :name, :architect, :pos, :start, :end, pictures: [])
+    params.require(:proposal).permit(:project_id, :name, :architect, :pos, :start, :end, :photo, pictures: [])
   end
 end

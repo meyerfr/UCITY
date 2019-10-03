@@ -1,5 +1,19 @@
-<li>
+<div class="projects-container">
+  <div class="searchbar-wrapper">
+    <div class="searchbar">
+      <i class="fas fa-search"></i>
+    </div>
+  </div>
   <% @projects.each do |project| %>
-    <ol><%= link_to "#{project.art} in #{project.street} #{project.city} #{project.postalcode}", government_project_proposals_path(project.government, project) %></ol>
+    <% proposals = Proposal.all.where(project_id: project.id).first(2) %>
+    <div class="one-project-wrapper">
+      <% if project.id == 1 %>
+        <%= image_tag proposals.first.photo, class: 'green-border' %>
+        <%= image_tag proposals.second.photo, class: 'green-border' %>
+      <% else %>
+        <%= image_tag proposals.first.photo %>
+        <%= image_tag proposals.second.photo %>
+      <% end %>
+    </div>
   <% end %>
-</li>
+</div>
