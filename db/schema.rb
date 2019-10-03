@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_10_03_115954) do
     t.string "architect"
     t.date "start"
     t.date "end"
-    t.integer "price"
+    t.string "price"
     t.string "pos"
     t.string "name"
     t.string "photo"
