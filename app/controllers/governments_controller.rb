@@ -1,6 +1,6 @@
-class GovernmentController < ApplicationController
+class GovernmentsController < ApplicationController
   def index
-    @government = Government.all
+    @governments = Government.all
   end
 
   def show
@@ -13,7 +13,7 @@ class GovernmentController < ApplicationController
 
   def create
     @government = Government.new(government_params)
-    redirect_to government_index_path if @government.save
+    redirect_to governments_path if @government.save
   end
 
   def edit
@@ -28,7 +28,7 @@ class GovernmentController < ApplicationController
   def destroy
     @government = Government.find(params[:id])
     if @government.destroy
-      redirect_to government_index_path
+      redirect_to governments_path
     else
       render :edit
     end

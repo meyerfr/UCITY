@@ -1,0 +1,17 @@
+<%= form_for @proposal, html: { multipart: true } do |f| %>
+  <%= f.label 'name the proposal' %>
+  <%= f.text_field :name %>
+  <%= f.label :architect %>
+  <%= f.text_field :architect %>
+  <%= f.label 'Construction start date' %>
+  <%= f.date :start %>
+  <%= f.label 'Construction end date' %>
+  <%= f.date :end %>
+  <%= f.label 'What´s the positiv aspect about this proposal' %>
+  <%= f.text_field :pos %>
+  <!-- notice 'multiple: true' -->
+  <%= f.label :pictures %>
+  <%= f.file_field :pictures, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+
+  <%= f.submit "Submit" %>
+<% end %>

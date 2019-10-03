@@ -1,0 +1,5 @@
+<li>
+  <% @governments.each do |government| %>
+    <ol><%= link_to government.country, government_projects_path(government) %></ol>
+  <% end %>
+</li>

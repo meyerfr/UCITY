@@ -1,6 +1,6 @@
-class ProjectController < ApplicationController
+class ProjectsController < ApplicationController
   def index
-    @projects = Government.find(params[:government_id]).projects
+    @projects = Project.all.where(government_id: Government.find(params[:government_id]).id)
   end
 
   def show
@@ -14,7 +14,7 @@ class ProjectController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      redirect_to government_project_index_path
+      redirect_to government_projects_path
     else
       render :new
     end
@@ -33,7 +33,7 @@ class ProjectController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     if @project.destroy
-      redirect_to government_project_index_path
+      redirect_to government_projects_path
     else
       render :edit
     end

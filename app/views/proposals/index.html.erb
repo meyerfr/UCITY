@@ -1,0 +1,27 @@
+<div class="projects-container">
+  <div class="project-header">
+    <p class="project-description"><%= @project.postalcode %> <%= @project.street %> (<%= @project.quater %>), <%= @project.street %></p>
+    <p class="send"><%= link_to 'SEND',government_projects_path(@government, @project) %></p>
+  </div>
+
+  <% @proposals.each_with_index do |proposal, index| %>
+    <div class="proposal-card-container">
+      <div class="proposal-picture-slider">
+        <!-- proposal.picture (slider, durch klicken nächstes Foto)-->
+        <%= image_tag "testbild1.jpg", class: 'proposal-picture' %>
+        <i class="far fa-circle"></i>
+        <i class="far fa-check-circle" hidden='true'></i>
+      </div>
+      <div class="proposal-card-info">
+        <!-- Bild, slider -->
+        <div class="text">
+          <p><%= proposal.name %> - Concept <%= index + 1 %> | <%= proposal.pos %></p>
+          <p><%= proposal.price %>€ | Constructionstart: <%= proposal.start.strftime("%d.%m.%Y") %> | Constructionend: <%= proposal.end.strftime("%d.%m.%Y") %></p>
+        </div>
+        <div class="burger-dots">
+          <i class="fas fa-ellipsis-v"></i>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

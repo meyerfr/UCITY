@@ -1,0 +1,5 @@
+<li>
+  <% @projects.each do |project| %>
+    <ol><%= link_to "#{project.art} in #{project.street} #{project.city} #{project.postalcode}", government_project_proposals_path(project.government, project) %></ol>
+  <% end %>
+</li>

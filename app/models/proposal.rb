@@ -1,4 +1,5 @@
 class Proposal < ApplicationRecord
-  belongs_to :user
-  belongs_to :government
+  mount_uploaders :pictures, PictureUploader
+  # serialize :pictures, JSON # If you use SQLite, add this line.
+  belongs_to :project
 end
