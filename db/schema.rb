@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_03_013544) do
+ActiveRecord::Schema.define(version: 2019_10_03_115954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,17 +28,25 @@ ActiveRecord::Schema.define(version: 2019_10_03_013544) do
     t.string "street"
     t.string "city"
     t.integer "postalcode"
+    t.string "art"
+    t.string "quater"
     t.index ["government_id"], name: "index_projects_on_government_id"
   end
 
   create_table "proposals", force: :cascade do |t|
     t.json "pictures"
-    t.bigint "user_id"
-    t.bigint "government_id"
+    t.bigint "project_id"
+    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["government_id"], name: "index_proposals_on_government_id"
-    t.index ["user_id"], name: "index_proposals_on_user_id"
+    t.string "architect"
+    t.date "start"
+    t.date "end"
+    t.integer "price"
+    t.string "pos"
+    t.string "name"
+    t.string "photo"
+    t.index ["project_id"], name: "index_proposals_on_project_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,6 +65,5 @@ ActiveRecord::Schema.define(version: 2019_10_03_013544) do
   end
 
   add_foreign_key "projects", "governments"
-  add_foreign_key "proposals", "governments"
-  add_foreign_key "proposals", "users"
+  add_foreign_key "proposals", "projects"
 end

@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
-  resources :government do
-    resources :project do
-      resources :proposal
+  resources :governments do
+    resources :projects do
+      resources :proposals
     end
   end
 end
